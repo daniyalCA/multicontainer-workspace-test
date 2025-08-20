@@ -9,7 +9,6 @@ services:
 
   secondary:
     image: ubuntu:22.04
-    user: 1001
     volumes:
       - ../..:/workspaces:cached
     post_start:
