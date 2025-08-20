@@ -13,7 +13,7 @@ services:
       - ../..:/workspaces:cached
     command: |
       bash -c "
-        echo '[SECONDARY] Container working_dir:)' >> /workspaces/container.log
+        echo '[SECONDARY] Container working_dir:' >> /workspaces/container.log
         pwd >> /workspaces/container.log
         while true; do sleep 3600; done
       "
