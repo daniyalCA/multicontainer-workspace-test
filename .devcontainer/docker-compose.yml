@@ -12,6 +12,6 @@ services:
     volumes:
       - ../..:/workspaces:cached
     post_start:
-      - command: echo '[SECONDARY] Container working_dir:' >> /workspaces/container.log && pwd >> /workspaces/container.log
-        user: root
+      - echo '[SECONDARY] Container working_dir:' >> /workspaces/container.log
+      - pwd >> /workspaces/container.log
     command: sleep infinity
