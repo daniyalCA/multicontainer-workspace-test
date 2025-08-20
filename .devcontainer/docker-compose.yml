@@ -9,8 +9,10 @@ services:
 
   secondary:
     image: ubuntu:22.04
+    user: 1001
     volumes:
       - ../..:/workspaces:cached
     post_start:
       - command: echo '[SECONDARY] Container working_dir:' >> /workspaces/container.log && pwd >> /workspaces/container.log
+        user: root
     command: sleep infinity
