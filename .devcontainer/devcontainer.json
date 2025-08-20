@@ -2,10 +2,5 @@
   "name": "Minimal Multi-Container Dev",
   "dockerComposeFile": "docker-compose.yml",
   "service": "main",
-  "postStartCommand": "echo '[MAIN] Container working_dir: $(pwd)' >> /workspaces/container.log",
-  "otherServices": {
-    "secondary": {
-      "postStartCommand": "echo '[SECONDARY] Container working_dir: $(pwd)' >> /workspaces/container.log"
-    }
-  }
+  "postStartCommand": "echo '[MAIN] Container working_dir: $(pwd)' >> /workspaces/container.log"
 }
