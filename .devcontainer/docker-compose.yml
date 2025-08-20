@@ -5,6 +5,7 @@ services:
     image: ubuntu:22.04
     volumes:
       - ../..:/workspaces:cached
+    command: sleep infinity
 
   secondary:
     image: ubuntu:22.04
