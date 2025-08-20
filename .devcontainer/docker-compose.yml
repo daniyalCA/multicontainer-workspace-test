@@ -5,19 +5,8 @@ services:
     image: ubuntu:22.04
     volumes:
       - ../..:/workspaces:cached
-    command: |
-      bash -c "
-        echo '[MAIN] Current directory:' >> /workspaces/container.log
-        pwd >> /workspaces/container.log
-        sleep infinity
-      "
 
   secondary:
     image: ubuntu:22.04
     volumes:
       - ../..:/workspaces:cached
-    command: |
-      bash -c "
-        echo '[SECONDARY] Current directory:' >> /workspaces/container.log
-        pwd >> /workspaces/container.log
-      "
