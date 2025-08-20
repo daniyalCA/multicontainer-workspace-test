@@ -1,0 +1,11 @@
+{
+  "name": "Minimal Multi-Container Dev",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "main",
+  "postStartCommand": "pwd",
+  "otherServices": {
+    "secondary": {
+      "postStartCommand": "pwd && while true; do sleep 3600; done"
+    }
+  }
+}
