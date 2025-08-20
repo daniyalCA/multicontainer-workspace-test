@@ -6,7 +6,14 @@ services:
     volumes:
       - ../..:/workspaces:cached
     working_dir: /workspaces
-    command: sleep infinity
+    command: |
+      bash -c "
+        echo '[MAIN] Container started at $(date)' | tee -a /workspaces/container.log
+        echo '[MAIN] Current directory: $(pwd)' | tee -a /workspaces/container.log
+        pwd | tee -a /workspaces/container.log
+        echo '[MAIN] Main container ready' | tee -a /workspaces/container.log
+        sleep infinity
+      "
 
   secondary:
     image: ubuntu:22.04
@@ -15,8 +22,10 @@ services:
     working_dir: /workspaces
     command: |
       bash -c "
-        pwd
-        echo 'Secondary container started'
+        echo '[SECONDARY] Container started at $(date)' | tee -a /workspaces/container.log
+        echo '[SECONDARY] Current directory: $(pwd)' | tee -a /workspaces/container.log
+        pwd | tee -a /workspaces/container.log
+        echo '[SECONDARY] Secondary container ready' | tee -a /workspaces/container.log
         while true; do 
           sleep 3600
         done
