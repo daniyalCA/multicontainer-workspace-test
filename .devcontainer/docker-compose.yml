@@ -13,5 +13,4 @@ services:
       - ../..:/workspaces:cached
     post_start:
       - command: echo '[SECONDARY] Container working_dir:' >> /workspaces/container.log && pwd >> /workspaces/container.log
-    command: |
-      bash -c "while true; do sleep 3600; done"
+    command: sleep infinity
